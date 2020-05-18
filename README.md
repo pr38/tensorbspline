@@ -1,5 +1,5 @@
 # tensorbspline
-A scikit-learn compatible implementation of Cubic Spline/B-Spline as well as a Multidimensional/Tensor spline variation. 
+A scikit-learn compatible implementation of Polynomial Spline/B-Spline as well as a Multidimensional/Tensor spline variation. 
 
 The BSpline class generates a one-dimensional spline for each feature. Knots are generated via histogram splits. The TensorBSplines gets a row-wise Kron-product between the splines until there is only one matrix left. Use with caution, as a few features will grow exponentially.
 
