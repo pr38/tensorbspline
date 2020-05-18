@@ -123,21 +123,7 @@ class BSpline(SplineBase):
         
         splines = self.get_splines(X)
 
-
-        if type(y) != type(None):
-                           
-            if self.sparse == False:
-                return np.hstack(splines), y
-            if self.sparse == True:
-                return sparse.hstack(splines), y
-
-        if type(y) == type(None):
-
-            if self.sparse == False:
-                return np.hstack(splines)
-            
-            if self.sparse == True:
-                return sparse.hstack(splines)
+        return sparse.hstack(splines)
 
 
 class TensorBSplines(SplineBase):
@@ -147,9 +133,5 @@ class TensorBSplines(SplineBase):
         
         splines = self.get_splines(X) 
 
-        if type(y) != type(None):
-            return functools.reduce(get_RowWiseKroneckerProduct , splines), y
-
-        if type(y) == type(None):
-            return functools.reduce(get_RowWiseKroneckerProduct , splines)
+        return functools.reduce(get_RowWiseKroneckerProduct , splines)
                            
